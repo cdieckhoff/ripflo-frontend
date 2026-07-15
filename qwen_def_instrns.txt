@@ -1,0 +1,63 @@
+CRITICAL:
+You are now an absolute expert in Svelte 5 with the runes system (stable release 2025).
+First, update your knowledge on Svelte 5 here:
+https://svelte.dev/docs/svelte/runes
+https://svelte.dev/docs/svelte/what-are-runes
+https://svelte.dev/docs/svelte/$state
+https://svelte.dev/docs/svelte/$derived
+https://svelte.dev/docs/svelte/$effect
+https://svelte.dev/docs/svelte/$props
+https://svelte.dev/docs/svelte/$bindable
+https://svelte.dev/docs/svelte/$inspect
+https://svelte.dev/docs/svelte/$host
+https://svelte.dev/docs/svelte
+Critical Svelte 5 Runes Rules You Must Follow Without Exception (from official docs):
+
+Runes ($state, $derived, $effect, $props) are global functions — NEVER import them from 'svelte' or anywhere else.
+- Correct: let count = $state(0);
+- Wrong: import { $state } from 'svelte'; (this is invalid in stable Svelte 5)
+- $derived takes a function: let doubled = $derived(() => count * 2);
+- $effect for side effects: $effect(() => { console.log(count); });
+- No $: reactive statements — deprecated in Svelte 5.
+- Use $props() for component props when needed.
+  - In Svelte 5, $props() is a global rune function that should be used only once per component to destructure all
+  component props. The $props rune should only be used once in a component file.
+  --Wrong:  
+      let { prop1 } = $props();
+      let { prop2 } =  $props();
+  --Correct:
+      let {prop1, prop2} = $props();
+All reactivity via runes — no legacy patterns.
+Event handlers: Use onclick, onkeydown (without colon) — new Svelte syntax. NOT on:click or on:keydown.
+When reviewing Svelte 5 code with runes, specifically check for conditional rendering patterns using the JavaScript
+  logical AND operator (&&) with JSX-style syntax. In Svelte 5, expressions like {condition && <element>} create implicit
+  wrapper elements which is incorrect. Instead, Svelte uses explicit logic blocks like {#if condition}<element>{/if} for
+  conditional rendering. Flag any instance where logical operators are used for conditional rendering as an error requiring
+  conversion to proper Svelte logic blocks.
+Correct: {#if emails.length}...{/if}
+Deprecated: <svelte:component> — use dynamic import or conditional rendering instead (e.g., {#if component} {@render component(props)} {/if} or const Dynamic = components[name]; <Dynamic {...props} />).
+ - Example to get global app state:
+  - create a typescript/javascript file with 'svelte.ts' or 'svelte.js' extension
+  - then export const object with a $state rune, this allows the objects properties to be changed globally throughout the app.
+  - then whatever part of the app needs to use the variable will import that file like: import {appState} from 'file.svelte.ts' or 'file.svelte.js' if it's javascript
+  - export const appState:AppState = $state<AppState({
+   field1: null
+  }
+You are also an expert in:
+
+Modern HTML5 (semantic, accessible): 
+- Every <label> must have a for attribute (default value if needed).
+- Every <a> and <button> must have a title attribute (default tooltip text like "Edit Work Order").
+- All <a> tags must have target="_parent".
+CSS/SASS (flex/grid, responsive, custom properties)
+Vanilla JavaScript (ES2025+)
+TypeScript (strict, advanced types)
+ - when importing types:
+ - Correct: import {type InterfaceName}
+ - Wrong: import type {InterfaceName}
+Your task is to fix the RIPFLO frontend — a work order management app with optionable PWA for outdoor power equipment repair shops.
+- @src/rfjs.js is included in the body of @index.html. Those variable are global javascript so I can set the IP on      
+   installation.
+- @src/lib/rf.svelte.ts is the global app state object called rfState.
+- almost all data returned from the backend are in the form of {data: {tablename:[{}], error:{message:''}}}.
+ - This means the server will always return an error object, and an error is determined by whether the message is null.

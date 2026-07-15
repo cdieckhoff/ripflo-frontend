@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ripflo</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="RIPFLO - Work Order Management for outdoor power equipment repair shops">
+    <meta name="theme-color" content="#F77947" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- PWA Icons -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23121212%22/><circle cx=%2250%22 cy=%2250%22 r=%2230%22 fill=%22%23F77947%22/></svg>" />
+
+    <!-- iOS Safari PWA support -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="RIPFLO" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23121212%22/><circle cx=%2250%22 cy=%2250%22 r=%2230%22 fill=%22%23F77947%22/></svg>" />
+
+    <!-- Android PWA support -->
+    <meta name="mobile-web-app-capable" content="yes" />
+  </head>
+  <body>
+    <div id="app"></div>
+     <script src="/rfjs.js"></script>
+    <script type="module" src="/src/main.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+              //console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              //console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
