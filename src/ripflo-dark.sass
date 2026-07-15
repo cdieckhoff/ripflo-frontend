@@ -1,0 +1,664 @@
+// Dark theme overrides for ripflo - FULL UPDATED .SASS SOURCE
+// === YOUR LOGO COLORS (EXACT) ===
+$logo-100: #FFEBDD
+$logo-200: #ed8a59ff
+$logo-300: #F77947
+$logo-600: #E26737
+$logo-700: #BD471A
+$logo-800: #992600
+
+// === NEUTRAL COLORS ===
+$neutral-50:  #f9fafb
+$neutral-100: #f3f4f6
+$neutral-200: #e5e7eb
+$neutral-300: #d1d5db
+$neutral-400: #9ca3af
+$neutral-500: #6b7280
+$neutral-600: #4b5563
+$neutral-700: #374151
+$neutral-800: #1f2937
+$neutral-900: #111827
+
+// === MAP TO BOOTSTRAP VARIABLES ===
+$primary: $logo-300
+$secondary: $neutral-600
+$success: #10b981
+$info: #3b82f6
+$warning: #f59e0b
+$danger: #ef4444
+
+$white:    #ffffff
+$gray-100: $neutral-100
+$gray-200: $neutral-200
+$gray-300: $neutral-300
+$gray-400: $neutral-400
+$gray-500: $neutral-500
+$gray-600: $neutral-600
+$gray-700: $neutral-700
+$gray-800: $neutral-800
+$gray-900: $neutral-900
+
+$grays: ("100": $gray-100, "200": $gray-200, "300": $gray-300, "400": $gray-400, "500": $gray-500, "600": $gray-600, "700": $gray-700, "800": $gray-800, "900": $gray-900)
+$dark-rgba: #2a2a2a
+// === DARK THEME OVERRIDES ===
+$body-bg:                 #0f0f0f
+$body-color:              #e0e0e0
+$link-color:              $logo-300
+$link-hover-color:        $logo-200
+$border-color:            #333
+$primary-bg:              #0f0f0f
+$bs-secondary-bg:            $neutral-600  
+// Cards
+$card-bg:                 #1a1a1a
+$card-border-color:       #333
+$card-cap-bg:             transparent
+$card-cap-color:          #cccccc
+
+// Buttons
+$btn-primary-bg:          $logo-300
+$btn-primary-border:      $logo-300
+$btn-primary-hover-bg:    $logo-600
+$btn-primary-hover-border: $logo-600
+$btn-primary-active-bg:   $logo-700
+$btn-primary-active-border: $logo-700
+
+$btn-outline-primary-color: $logo-300
+$btn-outline-primary-border: $logo-300
+$btn-outline-primary-hover-bg: $logo-300
+$btn-outline-primary-hover-color: $white
+$btn-close-color: $white
+
+// Inputs
+$input-bg:                 #1a1a1a
+$input-border-color:       #444
+$input-color:              #e0e0e0
+$input-focus-border-color: $logo-300
+$input-focus-color:        #ffffff
+$input-disabled-bg:        #2d2d2d
+$input-disabled-border-color: #555
+
+// Navigation
+$navbar-bg:                #1a1a1a
+$nav-link-color:           #cccccc
+$nav-link-hover-color:     #ffffff
+// === NAV TABS ACTIVE STATE ===
+$nav-tabs-link-active-bg: $logo-600
+$nav-tabs-link-active-color: $white
+$nav-tabs-link-active-border-color: $logo-300 $logo-300 transparent $logo-300
+
+$nav-tabs-link-hover-bg: $logo-700
+$nav-tabs-link-hover-color: $white
+$nav-tabs-link-hover-border-color: $logo-300
+
+// Base tab styling (inactive)
+$nav-tabs-border-color: #333
+$nav-link-color: #aaaaaa
+$nav-link-hover-color: $logo-300
+
+// Accordion
+$accordion-bg:             #1a1a1a
+$accordion-border-color:   #333
+$accordion-button-color:   #dddddd
+$accordion-button-bg:      #222
+$accordion-button-active-bg: #2a2a2a
+$accordion-button-active-color: #ffffff
+
+// Modals
+$modal-content-bg:         #1a1a1a
+$modal-content-border-color: #333
+$modal-header-border-color: #444
+$modal-footer-border-color: #444
+$modal-content-color:      #eeeeee
+
+// Tables
+$table-bg:                 #1a1a1a
+$table-border-color:       #2d2f2f
+$table-color:              #e0e0e0
+$table-striped-bg:         #222
+$table-hover-bg:           rgba($white, 0.03)
+$table-striped-bg:         rgba($white, 0.01)
+$table-cell-padding-y:     0.8rem;
+
+// Forms
+$form-check-input-bg:      #1a1a1a
+$form-check-input-border:  1px solid #444
+$form-select-bg:           #1a1a1a
+$form-select-color:        #e0e0e0
+
+// Apply the theme
+// Note: Using @import instead of @use because Bootstrap 5 still uses the old import system
+// This causes deprecation warnings but is required for Bootstrap compatibility
+@import "bootstrap/scss/bootstrap"
+
+.bg-dark
+  --bs-bg-opacity: 1;
+  background-color: rgba(#2a2a2a, var(--bs-bg-opacity)) !important;
+
+
+
+.form-control
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    width: 100%;
+    background: #222;
+    color: #e0e0e0;
+    transition: border-color 0.2s ease;
+    line-height: 1;
+
+// Fix for pinkish headers/banners seen in image
+.alert-danger, .error-banner, .invalid-feedback
+  background-color: rgba($danger, 0.2)
+  border: 1px solid $danger
+  color: #ff9999
+  padding: 0.75rem
+  border-radius: 8px
+
+:root
+  color-scheme: dark
+
+// === CUSTOM COMPONENT STYLES ===
+
+.app-container
+  background: #0f0f0f
+  overflow-x: hidden
+  margin: 0 auto
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  position: relative
+  top: 80px;
+  padding-bottom: 80px  // Add space equal to footer height to prevent content overlap
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 8px
+    z-index: 1000
+
+.sticky-header
+  position: fixed
+  background: #0f0f0f
+  z-index: 1000
+  width:100%
+  height:75px
+
+.app-header
+  height: 75px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin: 0.5rem !important
+  padding: 0.5rem !important
+  background: #0f0f0f
+
+.main-content
+  background: #1a1a1a
+  border-radius: 10px
+  margin: 1rem
+  margin-top: 2rem
+  padding: 1.5rem
+  color: #e0e0e0
+  border-top: 2px solid $logo-300
+  margin-bottom: 65px
+
+.clock-container
+  text-align: center
+  padding: 10px
+
+.date
+  font-size: 0.8rem !important
+
+.time
+  font-size: 1.0rem
+  font-weight: bold
+  margin-top: 10px
+
+.pcl-print
+  position: fixed
+  top: 50%;
+  left: 50%;
+  width: 90vw;
+  height: 90vh;
+  z-index: 1050;
+  display: block;
+  background: white;
+  overflow: auto;
+  translate: -50% -50%;
+
+@media print
+
+  body *
+    visibility: hidden
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Calibri'
+
+  .no-print, .modal-header, .modal-footer
+    display: none !important
+    background-color: white
+    color: black
+    width: 100%
+    position: fixed
+
+  .pcl-print, .pcl-print *
+    visibility: visible
+    
+.table, tbody, th, td, .btn
+  font-size: 15px;
+  font-weight: 400;
+
+.footer
+  position: fixed  // Change back to fixed but ensure content doesn't get covered
+  bottom: 0
+  left: 0
+  right: 0
+  background: #1a1a1a
+  border-top: 1px solid #333
+  z-index: 1000
+  padding: 0.75rem 1rem
+  .footer-inner
+    max-width: 768px
+    margin: 0 auto
+    display: flex
+    justify-content: space-between
+
+.action-icon
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
+  min-width: 64px
+  transition: transform 0.2s ease, opacity 0.2s ease
+  &.active
+    .action-link
+      transform: translateY(-3px)
+      box-shadow: 0 8px 20px rgba(247, 121, 71, 0.3)
+      background: $logo-300
+      color: white
+      i
+        color: white
+        transform: scale(1.1)
+    .label-container
+      color: #fff
+      font-weight: 600
+  .action-link
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 64px
+    height: 64px
+    margin-bottom: 4px
+    border-radius: 16px
+    background: #2a2a2a
+    transition: all 0.2s ease
+    text-decoration: none
+    color: $logo-300
+    &:hover
+      transform: translateY(-3px)
+      box-shadow: 0 8px 20px rgba(247, 121, 71, 0.3)
+      background: $logo-300
+      color: white
+      i
+        color: white
+        transform: scale(1.1)
+    i
+      font-size: 1.4rem
+      transition: all 0.2s ease
+      color: $logo-300
+      margin-bottom: 2px
+  .label-container
+    font-size: 0.75rem
+    font-weight: 500
+    color: #999
+    transition: color 0.2s ease
+
+.logo-container
+  padding: 10px
+  text-align: center
+  &:hover
+    border: 1px solid $logo-300
+    border-radius: 5px
+  img
+    max-width: 150px
+    height: auto
+
+.status-dashboard
+  margin-top: 1rem
+  h6
+    font-weight: 600
+    color: #e0e0e0
+    margin-bottom: 1.5rem
+    font-size: 1.1rem
+
+.status-bar
+  display: flex
+  gap: 0.5rem
+  padding: 0.75rem
+  background: #222
+  border-radius: 12px
+  margin-bottom: 1.5rem
+  overflow-x: auto
+  scrollbar-width: none
+  justify-content: space-between
+  &::-webkit-scrollbar
+    display: none
+
+.status-target
+  padding: 0.6rem 1rem
+  border-radius: 50px
+  color: $white
+  font-weight: 500
+  text-align: center
+  min-width: 110px
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2)
+  transition: all 0.2s ease
+  font-size: 0.875rem
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  position: relative
+  overflow: hidden
+  background-color: #6c757d
+  &:hover
+    transform: translateY(-3px)
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3)
+  &.drag-over
+    transform: scale(1.05)
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3)
+  .badge
+    margin-top: 0.25rem
+    background: rgba($white, 0.3) !important
+    backdrop-filter: blur(4px)
+
+// Base shared by priority and status
+.priority-icon,
+.status-icon
+  --icon: ""
+
+  position: relative
+  padding-left: 1.5rem
+  display: inline-block
+  line-height: 1.4
+
+  &::before
+    content: var(--icon)
+    font-family: "bootstrap-icons" !important
+    position: absolute
+    left: 0
+    top: 50%
+    transform: translateY(-50%)
+    font-size: 1rem
+    speak: never   
+
+.status-icon
+  &.status-1,
+  &.status-new
+    color: #6c757d !important  // NEW status color
+    --icon: '\f287'
+  &.status-2,
+  &.status-diagnosing,
+  &.status-diag
+    color: #17a2b8 !important  // DIAGNOSIS status color
+    --icon: '\f621'
+  &.status-3,
+  &.status-in-progress
+    color: #ffc107 !important  // WAITING PARTS status color
+    --icon: '\f292'
+  &.status-4,
+  &.status-in-progress,
+  &.status-in-prog
+    color: #007bff !important  // IN PROGRESS status color
+    --icon: '\f5db'
+  &.status-5,
+  &.status-awaiting-approval,
+  &.status-parts
+    color: #6610f2 !important  // QUALITY CHECK status color
+    --icon: '\F41F'
+
+  &.status-6,
+  &.status-testing,
+  &.status-test
+    color: #28a745 !important  // COMPLETED status color
+    --icon: '\f46c'
+
+  &.status-7,
+  &.status-finished,
+  &.status-done
+    color: #20c997 !important  // FINISHED status color
+    --icon: '\f270'
+  &.status-cancel
+    color: #ff3fff
+    --icon: '\F627'
+  &.status-paid
+    color: #00ff00
+    --icon: '\F50F'
+
+.toggle-icon
+  width: 20px
+  height: 20px
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  margin-right: 8px
+  transition: transform 0.2s
+
+/* Rotate icon when expanded */
+.expanded .toggle-icon
+  transform: rotate(90deg)
+
+.input-group-text
+  display: flex
+  align-items: center
+  padding: 0.375rem 0.75rem
+  font-size: 1rem
+  font-weight: 400
+  line-height: 1.5
+  color: #e0e0e0;
+  text-align: center
+  white-space: nowrap
+  background-color: #222
+  border: var(--bs-border-width) solid #444
+  border-radius: var(--bs-border-radius)
+
+.accordion
+  margin-bottom: 1rem
+  border: none
+  border-radius: 12px
+  overflow: hidden
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2)
+
+.accordion-header
+  padding: 1rem 1.25rem
+  border-radius: 12px 12px 0 0
+  color: $white
+  cursor: pointer
+  user-select: none
+  font-weight: 500
+  font-size: 0.95rem
+  display: flex
+  align-items: center
+  justify-content: space-between
+  transition: all 0.2s ease
+  position: relative
+  overflow: hidden
+  background-color: #6c757d
+  &:hover
+    opacity: 0.9
+  i
+    transition: transform 0.2s ease
+  .badge
+    background: rgba($white, 0.3) !important
+    backdrop-filter: blur(4px)
+
+.accordion-body
+  background: #222
+  border-radius: 0 0 12px 12px
+  border: 1px solid #333
+  border-top: none
+  display: grid
+  gap: 1rem
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))
+  min-height: 80px
+  padding: 1.25rem !important
+
+.divcontainer 
+  font-size: 13px
+  display: flex
+  justify-content: center
+  align-items: center
+  span
+    font-size: 13px
+    font-family: 'Calibri'
+
+.workorder-card
+  background: #222
+  border: none
+  border-radius: 12px
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2)
+  cursor: pointer
+  transition: all 0.2s ease
+  position: relative
+  display: block
+  &:hover
+    transform: translateY(-3px)
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3)
+  &:active
+    cursor: grabbing
+
+.card-header
+  padding: 1rem
+  background: #2a2a2a
+  border-bottom: 1px solid #333
+  display: flex
+  align-items: center
+  font-weight: 500
+  font-size: 1rem
+  color: #e0e0e0
+
+.card-body
+  padding: 1rem
+  color: #e0e0e0
+  background: #2a2a2a;
+
+.customer
+  font-weight: 600
+  margin-bottom: 0.5rem
+  color: #e0e0e0
+  font-size: 1rem
+
+.asset, .meta
+  font-size: 0.875rem
+  color: #aaa
+
+.drag-handle
+  opacity: 0.5
+  font-size: 1.2rem
+  cursor: grab
+  transition: all 0.2s ease
+  color: #888
+  &:hover
+    opacity: 0.8
+    transform: scale(1.1)
+    color: $logo-300
+
+.overlay
+  position: fixed
+  inset: 0
+  background: rgba(0, 0, 0, 0.8)
+  z-index: 9998
+  backdrop-filter: blur(4px)
+
+.modal
+  @extend .fade
+  @extend .show
+  @extend .px-3
+  display: block
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  background: #1a1a1a
+  border-radius: 20px
+  width: 95%
+  max-width: 580px
+  max-height: 95vh
+  overflow: auto
+  box-shadow: 0 25px 75px rgba(0, 0, 0, 0.4)
+  z-index: 9999
+  border: 1px solid #333
+  color: #e0e0e0
+
+.modal-header
+  padding: 1.5rem
+  color: $white
+  display: flex
+  justify-content: space-between
+  align-items: center
+  border-radius: 20px 20px 0 0
+  h2
+    margin: 0
+    color: white
+
+.close-btn
+  background: rgba($white, 0.2)
+  border: none
+  color: $white
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  font-size: 1.5rem
+  cursor: pointer
+  transition: all 0.2s ease
+  &:hover
+    background: rgba($white, 0.3)
+    transform: scale(1.1)
+
+h4
+  margin: 0 0 1rem
+  color: $logo-300
+  font-weight: 600
+  font-size: 1rem
+
+.status-select, .form-control, label input
+  padding: 0.75rem
+  font-size: 1rem
+  border-radius: 8px
+  border: 1px solid #444
+  width: 100%
+  background: #222
+  color: #e0e0e0
+  transition: border-color 0.2s ease
+  &:focus
+    border-color: $logo-300
+    outline: none
+
+.save-btn
+  background: linear-gradient(135deg, #059669, #047857)
+  color: $white
+  &:hover
+    transform: translateY(-2px)
+
+.priority-urgent
+  color: #dc3545
+.priority-high
+  color: $logo-300
+.priority-normal
+  color: #0dcaf0
+.priority-low
+  color: #198754
+
+
+
+.separator-line
+  border-bottom: 1px solid $logo-300
+  margin: 0.25rem 0.1rem
+
+.zip-lookup
+  display: flex
+  justify-content: between

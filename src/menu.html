@@ -1,0 +1,113 @@
+<head>
+    <style>
+        .roku-dpad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+}
+
+.roku-dpad-outer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 50%; /* Creates the circular shape */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dpad-button, .roku-dpad-center {
+    position: absolute;
+    cursor: pointer;
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dpad-button:hover, .roku-dpad-center:hover {
+    background-color: #777;
+}
+
+.roku-dpad-center {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the button */
+}
+
+/* Positioning the directional buttons */
+.up {
+    width: 50px;
+    height: 40px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.down {
+    width: 50px;
+    height: 40px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.left {
+    width: 40px;
+    height: 50px;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right {
+    width: 40px;
+    height: 50px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+    </style>
+<script>
+      const statuses = [
+    { id: 2, label: "Diagnosis",    color: "info"     },
+    { id: 3, label: "Waiting",      color: "warning"  },
+    { id: 4, label: "In Progress", color: "primary"  },
+
+    { id: 5, label: "QC",           color: "purple"   },
+    { id: 6, label: "Completed",   color: "success"  },
+    { id: 7, label: "Transfer",     color: "orange"   },
+    { id: 8, label: "Print",        color: "dark"     },
+    { id: 1, label: "New",          color: "secondary"}];
+</script>
+</head>
+
+<div class="roku-dpad-container">
+    <div class="roku-dpad-outer">
+        <!-- Up, Right, Down, Left sections could be complex using conic-gradient or SVG. 
+             A simpler approach is four overlapping rectangular buttons rotated. -->
+        <button class="dpad-button up" onclick="handleInput('up')">▲</button>
+        <button class="dpad-button right" onclick="handleInput('right')">►</button>
+        <button class="dpad-button down" onclick="handleInput('down')">▼</button>
+        <button class="dpad-button left" onclick="handleInput('left')">◄</button>
+        <button class="dpad-button up" onclick="handleInput('up')">▲</button>
+        <button class="dpad-button right" onclick="handleInput('right')">►</button>
+        <button class="dpad-button down" onclick="handleInput('down')">▼</button>
+        <button class="dpad-button left" onclick="handleInput('left')">◄</button>
+        <button class="roku-dpad-center" onclick="handleInput('select')">OK</button>
+    </div>
+</div>
+<script>
+    function handleInput(t){
+
+    }
+</script>
